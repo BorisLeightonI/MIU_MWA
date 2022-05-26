@@ -39,7 +39,7 @@ const toServer = function(req,res){
         switch (req.url) {
             case '/':
                 serveIndex(req,res);
-                break;
+            break;
             case '/page1':
             case '/page2':
                 console.log(req.url);
