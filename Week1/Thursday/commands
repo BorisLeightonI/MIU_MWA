@@ -2,4 +2,7 @@ use SchoolDB
 db.createCollection('Students')
 db.Students.insertMany([{name:'John',gpa:3.1},{name:'James',gpa:2.8},{name:'Jasmin',gpa:3.5}])
 
-mongoexport --db SchoolDB --collection Students --out /home/boris/Documentos/MIU/MWA/Asignments/Week1/Thursday/students.json --jsonArray --pretty 
+mongoexport --db SchoolDB --collection Students --out ~/Documentos/MIU/MWA/Asignments/Week1/Thursday/students.json --jsonArray --pretty 
+
+mongoimport --db Games --collection games --jsonArray ~/Documentos/MIU/MWA/Resources/games.json
+
