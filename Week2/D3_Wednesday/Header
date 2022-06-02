@@ -1,0 +1,11 @@
+ Instructions
+
+1- Create a MEAN version of the Games application to display all the games and a single game.
+
+2- Create a MEAN version of the SchoolDB application to display all the students and a single student.
+
+3- Create a MEAN version of your weekend application. The application should have the ability to display all your documents and a single document.
+
+4- Use at least one angular pipe in each of the above projects.
+
+Make sure all your applications follow the proper SoC covered in class. 
