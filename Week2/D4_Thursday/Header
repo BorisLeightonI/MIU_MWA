@@ -1,0 +1,17 @@
+ Instructions
+
+1- Add the following to your ShoolDB project:
+
+- The ability to add a new document (ex. student)
+
+- The ability to delete an existing document.
+
+- The ability to edit an existing document.
+
+2- Add insert, edit, and delete to the games application.
+
+For questions 1 & 2 make sure you have:
+
+1- Proper API hardening.
+
+2- Proper UI validation.
