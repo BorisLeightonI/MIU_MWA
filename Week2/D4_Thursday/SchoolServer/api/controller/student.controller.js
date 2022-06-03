@@ -11,9 +11,9 @@ const _getStudents = (students,res)=>{
 const _errStudentMessage = (err, res)=>{
     console.log('Error finding Students');
     console.log(err);
-    res.status(500).json(err); //<-- I want to use that
+    res.status(500).json(err);
 }
-const _updateOneStudent = 
+
 
 module.exports.getAll = (req,res)=>{
     Student.find().exec()
@@ -61,5 +61,10 @@ module.exports.editOne = async (req,res)=>{
 }
 
 module.exports.deleteOne = (req,res)=>{
-
+    if(req.params.id){
+        let id = req.params.id;
+        Student.findByIdAndDelete(id).exec()
+                .then((student)=>_getStudents(student,res))
+                .catch((err)=>_errStudentMessage(err,res));
+    }
 }
