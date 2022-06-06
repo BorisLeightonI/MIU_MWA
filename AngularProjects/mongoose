@@ -1,1 +1,5 @@
  Post.find({}).sort({test: 1}).exec(function(err, docs) { ... });
+ db.users.find({name:".."},{name:1,age:1,_id:0}) Display asType boolean 1:true, 0:false
+ All except one: {_id:0}
+ [ ..., address:{name:..., city:...}]
+ find -> ( {"adress.name":"..."} )
