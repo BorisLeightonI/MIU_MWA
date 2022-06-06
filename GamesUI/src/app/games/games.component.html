@@ -1,0 +1,45 @@
+<h2>List of Games</h2>
+<small>Limited by API</small>
+<!-- <ul>
+    <li *ngFor="let game of games">
+        <a routerLink="/game/{{game._id}}"> {{game.title}} </a>
+    </li>
+</ul> -->
+<!-- {{keys}}
+{{games.keys()}} -->
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Rate</th>
+            <th>Price</th>
+            <th>minPlayers</th>
+            <th>maxPlayers</th>
+            <th>minAge</th>
+            <th>Actions</th>
+<!--             <th>Gesigners</th> -->
+<!--             <th>Publisher</th> -->
+<!--             <th>Reviews</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let game of games">
+            <td> {{ game.title }} </td>
+            <td> {{ game.year }} </td>
+            <td> {{ game.rate }} </td>
+            <td> {{ game.price }} </td>
+            <td> {{ game.minPlayers }} </td>
+            <td> {{ game.maxPlayers }} </td>
+            <td> {{ game.minAge }} </td>
+            <td> 
+                    <a routerLink="/game/{{game._id}}" class="btn btn-primary">Show</a>
+                    <a routerLink="/editGame/{{game._id}}" class="btn btn-primary">Edit</a>
+                    <a routerLink="" class="btn btn-danger">Delete</a>
+            </td>
+<!--             <td> {{ game.designers }} </td> -->
+<!--             <td> {{ game.publisher }} </td> -->
+<!--             <td> {{ game.reviews }} </td> -->
+        </tr>
+    </tbody>
+</table>

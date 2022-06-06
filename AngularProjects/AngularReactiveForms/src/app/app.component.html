@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Registration Form</h2>
+<p>{{ registrationForm.value | json }}</p>
+  <form [formGroup]="registrationForm">
+    <div class="form-group">
+      <label for="">Username</label>
+      <input type="text" [class.is-valid]="registrationForm.get('userName')"  formControlName = "userName" 
+      class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="password" formControlName="password" 
+      class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Confirm password</label>
+      <input type="password" formControlName="confirmPassword" 
+      class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">City</label>
+      <input type="text" name="city" formControlName="city" 
+      class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">State</label>
+      <input type="text" formControlName="state" 
+      class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Postal Code</label>
+      <input type="text" formControlName="postalCode" 
+      class="form-control">
+    </div>
+<div class="mt-2">
+      <button type="submit" class="btn btn-primary">Register</button>
+      <button (click)="loadAPI()" class="ml-2 btn btn-secondary">Load API Data</button>
+</div>
+  </form>
+
+
+
+  <h3>Steps</h3>
+  <ol>
+    <li>Defining html template form</li>
+    <li>Define your formGroup model in the component class</li>
+    <li>Use the directives provided by the ReactiveForms module to asociate the model with the view</li>
+    <ul>
+      <li>formGroup</li>
+      <li>formControlName</li>
+      <li>formGroup varName.value | json to show first in view</li>
+    </ul>
+  </ol>
+</div>

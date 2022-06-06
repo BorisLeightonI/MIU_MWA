@@ -1,0 +1,12 @@
+nav{
+    background: linear-gradient(to right, #2a5586, #2b175c);
+    display: flex;
+    justify-content: flex-start;
+}
+nav a{
+    text-decoration: none;
+    padding: 3px;
+    margin: 0 3px;
+    /* background-color: rgb(51, 10, 90); */
+    color: aliceblue;
+}

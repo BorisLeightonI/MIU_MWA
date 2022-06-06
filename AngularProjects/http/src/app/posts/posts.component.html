@@ -1,0 +1,8 @@
+<!-- <button (click)="getPost()">GetAll</button> -->
+<button (click)="onNewPost()">New</button>
+<button (click)="updatePost()">Update</button>
+<button (click)="deletePost()">Delete</button>
+
+<p *ngFor="let post of posts">
+    {{ post | json }}
+</p>

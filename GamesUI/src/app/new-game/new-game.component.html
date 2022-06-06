@@ -1,0 +1,52 @@
+<div class="container">
+    <h3>Edit or Create a Game</h3>
+    <form [formGroup]="gameForm" >
+
+          <div class="">
+            <label for="title" class="">Title</label>
+            <div class="">
+              <input type="text" class="" id="title" name="title" formControlName="title">
+            </div>
+          </div>
+          <div class="">
+            <label for="year" class="">year</label>
+            <div class="">
+              <input type="text" class="" id="year" name="year" formControlName="year">
+            </div>
+          </div>
+          <div class="">
+            <label for="rate" class="">rate</label>
+            <div class="">
+              <input type="text" class="" id="rate" name="rate" formControlName="rate">
+            </div>
+          </div>
+          <div class="">
+            <label for="price" class="">price</label>
+            <div class="">
+              <input type="text" class="" id="price" name="price" formControlName="price">
+            </div>
+          </div>
+          <div class="">
+            <label for="minPlayers" class="">minPlayers</label>
+            <div class="">
+              <input type="text" class="" id="minPlayers" name="minPlayers" formControlName="minPlayers">
+            </div>
+          </div>
+          <div class="">
+            <label for="maxPlayers" class="">maxPlayers</label>
+            <div class="">
+              <input type="text" class="" id="maxPlayers" name="maxPlayers" formControlName="maxPlayers">
+            </div>
+          </div>
+          <div class="">
+            <label for="minAge" class="">minAge</label>
+            <div class="">
+              <input type="text" class="" id="minAge" name="minAge" formControlName="minAge">
+            </div>
+          </div>
+
+
+          <button class="btn btn-primary mt-3">Add or Edit</button>
+      
+    </form>
+</div>
