@@ -1,0 +1,1 @@
+ Post.find({}).sort({test: 1}).exec(function(err, docs) { ... });
