@@ -3,3 +3,4 @@
  All except one: {_id:0}
  [ ..., address:{name:..., city:...}]
  find -> ( {"adress.name":"..."} )
+ .countDocuments(...)

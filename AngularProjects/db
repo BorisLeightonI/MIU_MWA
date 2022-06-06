@@ -1,0 +1,8 @@
+mongorestore --gzip dump/
+mongorestore --nsInclude=meanGames.gamens --gzip dump/
+
+mongodump --db path/folder --gzip 
+
+Json
+mongoexport --db dbName --collection colName --out path/file.json --jsonArray --pretty
+mongoimport --db dbName --collection colName --jsonArray path/file.json 
