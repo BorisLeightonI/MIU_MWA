@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    height: 100vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.5fr;
+    grid-template-rows: .5fr 3fr 2fr 2fr .5fr;
+    grid-template-areas:
+        "main   main    header"
+        "main   main    tum"
+        "nom    yum     tum"
+        "nom    yum     lol"
+        "footer footer  lol";
+        
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    grid-area: main;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Alexander_Vinokourov_2%2C_London_2012_Time_Trial_-_Aug_2012.jpg/640px-Alexander_Vinokourov_2%2C_London_2012_Time_Trial_-_Aug_2012.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: azure;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.lol{
+    grid-area: lol;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Leading_group%2C_Giro_d%27Italia_2021%2C_Stage_15.jpg/640px-Leading_group%2C_Giro_d%27Italia_2021%2C_Stage_15.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: azure;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+section.nom {
+    grid-area: nom;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Tour_of_gippsland_final_stage.jpg/320px-Tour_of_gippsland_final_stage.jpg') no-repeat;
+    background-size: cover;
+    color: azure;
+}
+
+section.yum {
+    grid-area: yum;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Military_cyclists_in_pace_line.jpg/1024px-Military_cyclists_in_pace_line.jpg') no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: azure;
+}
+
+
+.tum {
+    grid-area: tum;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/1991_Giro_d%27Italia_Stage_13_Savigliano-Sestriere.jpg/640px-1991_Giro_d%27Italia_Stage_13_Savigliano-Sestriere.jpg') no-repeat;
+    background-size: cover;
+    color: white;
+    /* background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/2621168/tum.jpg') no-repeat; */
+}
+header {
+    grid-area: header;
+    background: #202020;
+    color: azure;
+}
+footer {
+    grid-area: footer;
+    background: #202020;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: azure;
+    font-size: small;
+}

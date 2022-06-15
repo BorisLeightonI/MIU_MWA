@@ -1,11 +1,16 @@
 <div class="container">
   <h2>Registration Form</h2>
 <p>{{ registrationForm.value | json }}</p>
-  <form [formGroup]="registrationForm">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="">Username</label>
-      <input type="text" [class.is-valid]="registrationForm.get('userName')"  formControlName = "userName" 
-      class="form-control">
+      <input type="text" [class.is-invalid]="userName?.invalid &&
+                                             userName?.touched"  
+      formControlName = "userName"  class="form-control">
+      <div *ngIf="userName?.invalid && userName?.touched">
+        <small *ngIf="userName?.errors?.['required']" class="text-danger">Username is required</small>
+        <small *ngIf="userName?.errors?.['minlength']" class="text-danger">Username min length is 3</small>
+      </div>
     </div>
     <div class="form-group">
       <label for="">Password</label>
@@ -16,6 +21,30 @@
       <label for="">Confirm password</label>
       <input type="password" formControlName="confirmPassword" 
       class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <button class="btn btn-secondary btn-sm m-2" (click)="addAlternateEmail()">Add e-mail</button>
+      <input type="email" formControlName="email" 
+      class="form-control">
+
+      <div formArrayName="alternateEmails" *ngFor="let email of alternateEmails.controls; let i=index">
+        <input type="text" class="form-control my-1" [formControlName]="i">
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="">TeamMembers</label>
+      <button class="btn btn-secondary btn-sm m-2" (click)="addTeamMember()">Add teamMember</button>
+ 
+      <div formArrayName="teamMembers" *ngFor="let member of teamMembers.controls; let i=index">
+        <div class="container" [formGroupName]="i">
+          <input type="text" class="form-control my-1" formControlName="name">
+          <input type="text" class="form-control my-1" formControlName="age">
+          <input type="text" class="form-control my-1" formControlName="position">
+        </div>
+      </div>
+
     </div>
     <div class="form-group">
       <label for="">City</label>
@@ -32,10 +61,10 @@
       <input type="text" formControlName="postalCode" 
       class="form-control">
     </div>
-<div class="mt-2">
-      <button type="submit" class="btn btn-primary">Register</button>
-      <button (click)="loadAPI()" class="ml-2 btn btn-secondary">Load API Data</button>
-</div>
+  <div class="mt-2">
+        <button type="submit" class="btn btn-primary">Register</button>
+        <button (click)="loadAPI()" class="ml-2 btn btn-secondary">Load API Data</button>
+  </div>
   </form>
 
 
@@ -50,5 +79,15 @@
       <li>formControlName</li>
       <li>formGroup varName.value | json to show first in view</li>
     </ul>
+  </ol>
+
+  <h3>Steps formArray</h3>
+  <ol>
+    <li>Import formArray</li>
+    <li>define a formBuilder.array</li>
+    <li>create a getter</li>
+    <li>create a method to push a control or a group</li>
+    <li>Add a formArrayName Directive in html template</li>
+    <li>Iterate using ngFor</li>
   </ol>
 </div>

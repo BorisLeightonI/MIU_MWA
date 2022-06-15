@@ -1,0 +1,68 @@
+<div class="container">
+    <h1>Add new Team</h1>
+    <div *ngIf="saved" class="alert alert-success w-25 fade show" role="alert">
+        Team Saved Successfully!
+      </div>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="">Team Name</label>
+          <input type="text" [class.is-invalid]="teamName?.invalid && teamName?.touched"  
+                 formControlName = "name"  class="form-control">
+          <div *ngIf="teamName?.invalid && teamName?.touched">
+            <small *ngIf="teamName?.errors?.['required']" class="text-danger">TeamName is required</small>
+            <small *ngIf="teamName?.errors?.['minlength']" class="text-danger">TeamName min length is 3</small>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="">Country</label>
+            <input type="text" formControlName="country" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Date</label>
+            <input type="date" formControlName="date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Distance</label>
+            <input type="number" formControlName="distance" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="">TeamMembers</label>
+            <button class="btn btn-secondary btn-sm m-2" (click)="addTeamMember()">Add teamMember</button>
+    
+            <div formArrayName="teamMembers" *ngFor="let member of teamMembers.controls; let i=index">
+            <div class="container" [formGroupName]="i">
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="">Name</label>
+                        <input type="text" class="form-control my-1" formControlName="name">
+                    </div>
+                    <div class="form-group col">
+                        <label for="">Age</label>
+                        <input type="text" class="form-control my-1" formControlName="age">
+                    </div>
+                    <div class="form-group col">
+                        <label for="">Address</label>
+                        <input type="text" class="form-control my-1" formControlName="address">
+                    </div>
+                    <div class="form-group col">
+                        <label for="">Country</label>
+                        <input type="text" class="form-control my-1" formControlName="country">
+                    </div>
+                    <div class="form-group col">
+                        <label for="">Contact Name</label>
+                        <input type="text" class="form-control my-1" formControlName="contactName">
+                    </div>
+                    <div class="form-group col">
+                        <label for="">Contact Telephone</label>
+                        <input type="text" class="form-control my-1" formControlName="contactTelephone">
+                    </div>
+                </div>
+            </div>
+            </div>
+    
+        </div>
+        <button [disabled]="!registrationForm?.valid" type="submit" class="btn btn-primary">Register</button>
+        <button routerLink="/teams" class="btn btn-primary mx-3">Go Back to Teams List</button>
+    </form>
+</div>

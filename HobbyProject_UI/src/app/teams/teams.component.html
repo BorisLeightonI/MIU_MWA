@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Teams details</h1>
+    <button routerLink="addOne" class="btn btn-primary">Add new Team</button>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Date</th>
+                    <th>Distance (km)</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let team of teams">
+                        <td> {{ team.name }} </td>
+                        <td> {{ team.country }} </td>
+                        <td> {{ team.date | date:'medium' }} </td>
+                        <td> {{ team.distance }} </td>
+                        <td> 
+                            <button routerLink="../show/{{team._id}}" class="btn btn-outline-primary">Show</button> 
+                            <!-- <button routerLink="../show/{{team._id}}" class="btn btn-outline-primary">Show</button>  -->
+                            <button routerLink="../edit/{{team._id}}" class="btn btn-outline-primary mx-3">Edit</button> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+</div>

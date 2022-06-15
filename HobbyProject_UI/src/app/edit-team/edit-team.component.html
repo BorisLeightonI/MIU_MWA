@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Edit Form</h1>
+    <pre> {{editForm.value | json}} </pre>
+    <!-- <pre> {{team | json}} </pre> -->
+    <form (ngSubmit)="onSubmit(editForm)" #editForm="ngForm" class="w-50 mx-auto">
+        <div class="my-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="team.name" required>
+            <div [hidden]="name.valid||name.pristine" class="alert alert-danger">This field is required</div>
+        </div>
+        <div class="my-3">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" class="form-control" id="country" name="country" #country="ngModel" [(ngModel)]="team.country" required>
+            <div [hidden]="country.valid||country.pristine" class="alert alert-danger">This field is required</div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="my-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" #date="ngModel" [(ngModel)]="team.date" required>
+                    <div [hidden]="date.valid||date.pristine" class="alert alert-danger">This field is required</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="my-3">
+                    <label for="distance" class="form-label">Distance</label>
+                    <input type="number" class="form-control" id="distance" name="distance" #distance="ngModel" [(ngModel)]="team.distance" required>
+                    <div [hidden]="distance.valid||distance.pristine" class="alert alert-danger">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3>Team members</h3>
+        <div class="row" *ngFor="let member of team.teamMembers">
+            <div class="col">
+                
+            </div>
+            <div class="col">
+                
+            </div>
+        </div>
+
+
+        <div class="d-grid gap-2 col-4 float-end">
+            <button class="btn btn-info btn-lg" [disabled]="editForm.invalid">Send</button>
+        </div>
+    </form>
+</div>

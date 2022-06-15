@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Team Details</h2>
+    <table class="table">
+        <thead>
+            <th>Field</th>
+            <th>Value</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Name </td>
+                <td> {{team.name}} </td>
+            </tr>
+            <tr>
+                <td> Country </td>
+                <td> {{team.country}} </td>
+            </tr>
+            <tr>
+                <td> Date </td>
+                <td> {{team.date | date:'medium'}} </td>
+            </tr>
+            <tr>
+                <td> Distance (km) </td>
+                <td> {{team.distance}} </td>
+            </tr>
+        </tbody>
+    </table>
+    <h4 class="my-3">Team Members</h4>
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>Contact Name</th>
+            <th>Contact Telephone</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let member of team.teamMembers">
+                <td> {{ member.name }} </td>
+                <td> {{ member.age }} </td>
+                <td> {{ member.address }} </td>
+                <td> {{ member.country }} </td>
+                <td> {{ member.contactName }} </td>
+                <td> {{ member.contactTelephone }} </td>
+            </tr>
+        </tbody>
+    </table>
+    <button routerLink="/edit/{{team._id}}" class="btn btn-primary">Edit</button>
+</div>
