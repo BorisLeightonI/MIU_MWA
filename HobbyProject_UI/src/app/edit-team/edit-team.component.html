@@ -1,8 +1,11 @@
 <div class="container">
     <h1>Edit Form</h1>
-    <pre> {{editForm.value | json}} </pre>
-    <!-- <pre> {{team | json}} </pre> -->
-    <form (ngSubmit)="onSubmit(editForm)" #editForm="ngForm" class="w-50 mx-auto">
+    <div *ngIf="saved" class="alert alert-success w-25 fade show" role="alert">
+        Team Saved Successfully!
+    </div>
+        <!-- <pre> {{editForm.value | json}} </pre> -->
+<!--<pre> {{team | json}} </pre> -->
+    <form (ngSubmit)="onSubmit(editForm)" #editForm="ngForm" class="">
         <div class="my-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="name" #name="ngModel" [(ngModel)]="team.name" required>
@@ -31,18 +34,41 @@
         </div>
         <hr>
         <h3>Team members</h3>
-        <div class="row" *ngFor="let member of team.teamMembers">
-            <div class="col">
-                
-            </div>
-            <div class="col">
-                
+        <div class="container" ngModelGroup="teamMembers">
+                <div *ngFor="let member of team.teamMembers; index as i">
+                <div class="row" ngModelGroup="{{i}}">
+                    <div class="col">
+                        <label for="">name</label>
+                        <input type="text" value="{{ member.name }}" name="name" [(ngModel)]="member.name">
+                    </div>
+                    <div class="col">
+                        <label for="">age</label>
+                        <input type="text" value="{{ member.age }}" name="age" [(ngModel)]="member.age">
+                    </div>
+                    <div class="col">
+                        <label for="">address</label>
+                        <input type="text" value="{{ member.address }}" name="address" [(ngModel)]="member.address">
+                    </div>
+                    <div class="col">
+                        <label for="">country</label>
+                        <input type="text" value="{{ member.country }}" name="country" [(ngModel)]="member.country">
+                    </div>
+                    <div class="col">
+                        <label for="">contactName</label>
+                        <input type="text" value="{{ member.contactName }}" name="contactName" [(ngModel)]="member.contactName">
+                    </div>
+                    <div class="col">
+                        <label for="">contactTelephone</label>
+                        <input type="text" value="{{ member.contactTelephone }}" name="contactTelephone" [(ngModel)]="member.contactTelephone">
+                    </div>
+                </div>
             </div>
         </div>
 
 
         <div class="d-grid gap-2 col-4 float-end">
             <button class="btn btn-info btn-lg" [disabled]="editForm.invalid">Send</button>
+            <button routerLink="/teams" class="btn btn-primary mx-3">Go Back to Teams List</button>
         </div>
     </form>
 </div>

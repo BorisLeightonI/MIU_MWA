@@ -6,7 +6,9 @@ export const environment = {
   production: false,
   testVar: 'testValue_mod',
   otherVal: 'testing',
-  url: 'url to connect to back-end express server'
+  url: 'url to connect to back-end express server',
+  register_url: 'url to register a new user',
+  login_url: 'url to login'
 };
 
 /*

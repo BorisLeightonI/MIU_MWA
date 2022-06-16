@@ -46,7 +46,7 @@ export class AddTeamComponent implements OnInit {
 
   onSubmit(){
     // console.log(this.registrationForm.value);
-    this.teamService.addOne(this.registrationForm.value).subscribe(response => {
+    this.teamService.addOneTeam(this.registrationForm.value).subscribe(response => {
       if(response){
         console.log(response)
         this.registrationForm.reset();

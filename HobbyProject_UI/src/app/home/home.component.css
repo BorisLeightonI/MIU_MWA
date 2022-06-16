@@ -2,6 +2,14 @@ body {
     margin: 0;
     height: 100vh;
 }
+button{
+    background: none;
+    border:none;
+}
+a,button{
+    text-decoration: none;
+    color: azure;
+}
 
 .grid-container {
     display: grid;

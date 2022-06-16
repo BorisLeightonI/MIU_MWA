@@ -5,7 +5,10 @@
             <p>Alexander Vinokourov competing in the London 2012 Men's Olympic Time Trial.</p>
         </main>
         <header>
-            <a routerLink="teams">Teams</a>
+            <!-- <a class="nav-link"  routerLink="teams">Teams</a> -->
+            <a class="nav-link" *ngIf="!uService.logedIn()" routerLink="login">Login</a>
+            <a class="nav-link" *ngIf="!uService.logedIn()" routerLink="register">Register</a>
+            <button class="nav-link" *ngIf="uService.logedIn()" (click)="uService.logout()">LogOut</button>
         </header>
         <section class="nom">
             <p>The Tour of Gippsland – a stage race in Australia – climbing through the Omeo Shire</p>

@@ -22,8 +22,11 @@ export class TeamsService {
   getOneTeam(id:String): Observable<Team>{    
     return this.http.get<Team>(this.url+'/'+id);
   }
-  addOne(team:Team){
+  addOneTeam(team:Team): Observable<Team>{
     return this.http.post<Team>(this.url, team);
+  }
+  editOneTeam(team:Team): Observable<Team>{
+    return this.http.put<Team>(this.url+'/'+team._id, team);
   }
 
 }
