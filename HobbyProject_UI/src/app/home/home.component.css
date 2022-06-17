@@ -6,9 +6,10 @@ button{
     background: none;
     border:none;
 }
-a,button{
+a{
     text-decoration: none;
     color: azure;
+    display: inline-block;
 }
 
 .grid-container {

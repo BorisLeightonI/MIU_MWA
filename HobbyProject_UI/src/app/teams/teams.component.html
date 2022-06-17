@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Teams details</h1>
-    <button routerLink="addOne" class="btn btn-primary">Add new Team</button>
+<!--     <button routerLink="addOne" class="btn btn-primary">Add new Team</button> -->
     <div class="row">
         <div class="col">
             <table class="table">
@@ -28,4 +28,6 @@
         </div>
        
     </div>
+    <button (click)="prevPage()" [class.disabled]="page==1" class="btn btn-primary">Prev</button>
+    <button (click)="nextPage()" class="btn btn-primary mx-3">Next</button>
 </div>

@@ -10,6 +10,8 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  loggedIn = false;
+
   loginUserData:User = {
     email: '',
     password: ''
@@ -26,8 +28,12 @@ export class LoginComponent implements OnInit {
     this.uServ.loginUser(this.loginUserData).subscribe(
       token => {
         console.log(token);
-        localStorage.setItem('token', token);
-        this.router.navigate(['teams']);
+        this.loggedIn = true;
+        setTimeout(()=>{
+          localStorage.setItem('token', token);
+          this.loggedIn=false
+          this.router.navigate(['teams']);
+        }, 1500);
       },
       err => console.log(err)
     )

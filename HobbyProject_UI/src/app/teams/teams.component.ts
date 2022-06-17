@@ -13,6 +13,7 @@ export class TeamsComponent implements OnInit {
 
   teams !: Team[];
   teamMembers !: TeamMembers[];
+  page:number = 1;
 
   constructor(private teamsService: TeamsService) { }
 
@@ -22,7 +23,14 @@ export class TeamsComponent implements OnInit {
   
   teamData(team:Team){
     this.teamMembers = team.teamMembers;
-    
+  }
+  nextPage(){
+    this.page += 1;
+    this.teamsService.getTeamsByBlocks(this.page,5).subscribe(teams => this.teams = teams)
+  }
+  prevPage(){
+    if(this.page>=2) this.page -= 1;
+    this.teamsService.getTeamsByBlocks(this.page,5).subscribe(teams => this.teams = teams)
   }
 
 }

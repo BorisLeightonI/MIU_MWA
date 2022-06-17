@@ -1,8 +1,12 @@
 <div class="container">
     <h1>Add new Team</h1>
-    <div *ngIf="saved" class="alert alert-success w-25 fade show" role="alert">
+    <div id="alert" *ngIf="saved" class="alert alert-success w-25 fade show" role="alert">
         Team Saved Successfully!
-      </div>
+    </div>
+    <div id="error" *ngIf="error" class="alert alert-danger w-25 fade show" role="alert">
+        <p>Something went wrong!</p>
+        <p>Look at the console for more info</p>
+    </div>
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="">Team Name</label>
@@ -13,29 +17,43 @@
             <small *ngIf="teamName?.errors?.['minlength']" class="text-danger">TeamName min length is 3</small>
           </div>
         </div>
-        <div class="form-group">
-            <label for="">Country</label>
-            <input type="text" formControlName="country" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="">Date</label>
-            <input type="date" formControlName="date" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="">Distance</label>
-            <input type="number" formControlName="distance" class="form-control">
+        <div class="row">
+            <div class="form-group w-25">
+                <label for="">Country</label>
+                <input type="text" [class.is-invalid]="teamCountry?.invalid && teamCountry?.touched"  
+                    formControlName="country" class="form-control">
+                <div *ngIf="teamCountry?.invalid && teamCountry?.touched">
+                    <small *ngIf="teamCountry?.errors?.['required']" class="text-danger">this field is required</small>
+                </div>
+            </div>
+            <div class="form-group  w-25">
+                <label for="">Date</label>
+                <input type="date" [class.is-invalid]="teamDate?.invalid && teamDate?.touched"
+                    formControlName="date" class="form-control">
+                <div *ngIf="teamDate?.invalid && teamDate?.touched">
+                    <small *ngIf="teamDate?.errors?.['required']" class="text-danger">this field is required</small>
+                </div>
+            </div>
+            <div class="form-group  w-25">
+                <label for="">Distance</label>
+                <input type="number" [class.is-invalid]="teamDist?.invalid && teamDist?.touched" 
+                    formControlName="distance" class="form-control">
+                <div *ngIf="teamDist?.invalid && teamDist?.touched">
+                    <small *ngIf="teamDist?.errors?.['required']" class="text-danger">this field is required</small>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
             <label for="">TeamMembers</label>
-            <button class="btn btn-secondary btn-sm m-2" (click)="addTeamMember()">Add teamMember</button>
-    
+            <button class="btn btn-success btn-sm m-2" (click)="addTeamMember($event)">Add teamMember</button>
             <div formArrayName="teamMembers" *ngFor="let member of teamMembers.controls; let i=index">
-            <div class="container" [formGroupName]="i">
-                <div class="row">
+                <div class="container" [formGroupName]="i">
+                    <div class="row">
+                    <div class="w-1"><button class="btn btn-dark btn-sm m-2" (click)="deleteTeamMember(i, $event)">Del</button></div>
                     <div class="form-group col">
-                        <label for="">Name</label>
-                        <input type="text" class="form-control my-1" formControlName="name">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control my-1" formControlName="name">
                     </div>
                     <div class="form-group col">
                         <label for="">Age</label>
@@ -59,10 +77,10 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     
         </div>
-        <button [disabled]="!registrationForm?.valid" type="submit" class="btn btn-primary">Register</button>
-        <button routerLink="/teams" class="btn btn-primary mx-3">Go Back to Teams List</button>
+        <!-- <button [disabled]="!registrationForm?.valid" type="submit" class="btn btn-primary">Register</button> -->
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>

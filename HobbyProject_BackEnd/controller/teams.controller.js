@@ -9,6 +9,7 @@ module.exports.index = (req,res)=>{
 
 module.exports.getAll = (req,res)=>{
     const {offset, count} = offsetAndCount(req,res);
+    console.log('offset and count: ', offset, count);
     Teams.find()
         .skip(offset)
         .limit(count)
@@ -38,7 +39,7 @@ const newTeam = {
 if(newTeam.name&&newTeam.country&&newTeam.date&&newTeam.distance&&newTeam.teamMembers){
     Teams.create(newTeam)
             .then(teams=>_getTeams(teams,res))
-            .catch(err=>_errStudentMessage(err,res));
+            .catch(err=>_errTeamsMessage(err,res));
             // res.json({newTeam});
 }else{
     res.status(500).json(

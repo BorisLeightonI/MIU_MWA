@@ -1,3 +1,6 @@
+<div id="alert" *ngIf="deleted" class="alert alert-danger w-25 fade show" role="alert">
+    Team Deleted Successfully!
+</div>
 <div class="container">
     <h2>Team Details</h2>
     <table class="table">
@@ -45,5 +48,10 @@
             </tr>
         </tbody>
     </table>
-    <button routerLink="/edit/{{team._id}}" class="btn btn-primary">Edit</button>
+    <div class="w-100">
+        <button routerLink="/edit/{{team._id}}" class="btn btn-primary">Edit</button>
+        <button (click)="deleteTeam()" class="btn btn-outline-danger mx-5">Delete</button>
+    </div>
 </div>
+
+ 
