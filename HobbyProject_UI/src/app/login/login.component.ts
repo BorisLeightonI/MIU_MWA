@@ -11,6 +11,7 @@ import { UserService } from '../services/user.service';
 export class LoginComponent implements OnInit {
 
   loggedIn = false;
+  errLoggedIn = false;
 
   loginUserData:User = {
     email: '',
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this.uServ.loginUser(this.loginUserData).subscribe(
       token => {
-        console.log(token);
+        console.log('token',token);
         this.loggedIn = true;
         setTimeout(()=>{
           localStorage.setItem('token', token);
@@ -35,7 +36,13 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['teams']);
         }, 1500);
       },
-      err => console.log(err)
+      err => {
+        console.log(err);
+        this.errLoggedIn = true;
+        setTimeout(()=>{
+          this.errLoggedIn=false
+        }, 1500);
+      }
     )
   }
 

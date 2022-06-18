@@ -1,6 +1,9 @@
 <div id="alert" *ngIf="loggedIn" class="alert alert-info w-25 fade show" role="alert">
   Logged In!
 </div>
+<div id="alert" *ngIf="errLoggedIn" class="alert alert-danger w-25 fade show" role="alert">
+  <p>Unouthorized,</p> <p>try again.</p>
+</div>
 <div class="w-50 mx-auto">
     <h1>Login Form</h1>
     <form class="mt-3">

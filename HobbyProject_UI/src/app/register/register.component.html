@@ -1,3 +1,9 @@
+<div id="alert" *ngIf="registered" class="alert alert-info w-25 fade show" role="alert">
+  Logged In!
+</div>
+<div id="alert" *ngIf="errRegistered" class="alert alert-alert w-25 fade show" role="alert">
+  <p>Unouthorized,</p> <p>try again.</p>
+</div>
 <div class="w-50 mx-auto">
     <h1>Registration Form</h1>
     <form class="mt-3">

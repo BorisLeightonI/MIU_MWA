@@ -3,3 +3,7 @@
     right: 10px;
     top: 10px;
 }
+
+.modal-content{
+    background: black;
+}
